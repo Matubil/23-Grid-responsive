@@ -12,20 +12,23 @@ body{
 
 .card-container{
     padding: 20px;
-    flex-grow: 1;
-    display: flex;
-    column-gap: 20px;
-    row-gap: 20px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /*lo que va a hacer es que como minimo tenga un ancho de 200px o 1fr, entonces lo que va a pasar se que si achicamos lo manda para abajo*/
+    /*
+    auto-fit: toma el espacio y lo estira
+    auto-fill: dispersa las cards con el tamaño minimo sin ampliarse
+    o sino se puede colocar
+    repeat(auto-fit, 200px) 5 elementos con 200px de ancho fijo, para no tener que poner 1fr 5 veces*/
+    gap: 16px; /*para separar un poco a lo ancho las cards*/
 }
 
 .card{
     display: flex;
     flex-direction: column;
     /* flex: 1; esta no es la solucion ideal, proque no mantendrian el tamaño nunca */
-    flex-grow: 1;
+    /* flex-grow: 1; */
     /* border: 3px solid blue; */
-    width: 240px;
     font-size: 14px;
     border-radius: 5px;
     overflow: hidden;       /*lo que hace es lo que sobrepase no se vea*/
@@ -85,8 +88,12 @@ body{
 }
 
 .card-body{
+    /* padding: 8px 16px 16px;
+    flex-grow: 1;  para que si sobre espacio lo ocupe el body */
     padding: 8px 16px 16px;
-    flex-grow: 1;  /*para que si sobre espacio lo ocupe el body*/
+    /* flex: 1; */
+    height: 200px;
+    overflow: hidden;
 }
 
 .card-body__title{
@@ -95,10 +102,6 @@ body{
     margin-bottom: 8px;
     font-size: 18px;
     text-align: center;
-}
-
-.card-body{
-    padding: 16px;
 }
 
 .card-body__description{
